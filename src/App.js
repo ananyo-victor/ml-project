@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import LandingPage from './LandingPage';
+import ChoosePage from './ChoosePage';
+import ImagePage from './ImagePage';
+import Navbar from './Navbar';
+import Footer from './Footer';
+import AboutPage from './AboutPage';
+import ContactPage from './ContactPage';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className='relative'>
+      <Navbar/>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/choose" element={<ChoosePage />} />
+        <Route path="/image-detection" element={<ImagePage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+        {/* Future page for Voice Detection */}
+        <Route
+          path="/voice-detection"
+          element={<h1 className="text-center mt-20">Voice Detection Coming Soon!</h1>}
+        />
+      </Routes>
+      <Footer/>
+      </div>
+    </Router>
   );
 }
 
