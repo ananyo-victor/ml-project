@@ -63,7 +63,7 @@ function ImagePage() {
 
         const base64Image = canvas.toDataURL("image/jpeg");
 
-        const response = await axios.post("http://localhost:5000/predict", {
+        const response = await axios.post("https://ml-project-backend-v8ht.onrender.com/predict", {
           frame: base64Image,
         });
 
